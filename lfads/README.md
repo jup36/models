@@ -13,6 +13,10 @@ The code is written in Python 2.7.6. You will also need:
 * **NumPy, SciPy, Matplotlib** ([install SciPy stack](https://www.scipy.org/install.html), contains all of them)
 * **h5py** ([install](https://pypi.python.org/pypi/h5py))
 
+```
+$ conda remove -y tensorflow ; conda install -y tensorflow-gpu=1.1 # This should remove the old `tensorflow` and install the `tensorflow-gpu` package afterwards.
+```
+
 
 ## Getting started
 
@@ -36,10 +40,19 @@ $ ./run_generate_synth_data.sh
 $ cd .. (default save directory: /lfads/synth_data/tmp/rnn_synth_data_v1./)
 $ nautilus /tmp (e.g. parkj@dudmanlab-ws1:~/models-master/lfads/synth_data$ nautilus /tmp # This will pop up the tmp folder)
 ```
-
 These synthetic datasets are provided 1. to gain insight into how the LFADS algorithm operates, and 2. to give reasonable starting points for analyses you might be interested for your own data.
 Synthetic data are saved in hdf5 format (useful matlab functions: hdf5write | hdf5info | hdf5read).
 
+## A note for data format 
+
+Ref:
+http://docs.h5py.org/en/latest/
+https://www.mathworks.com/help/matlab/ref/h5read.html
+
+```
+>> cd('/tmp/rnn_synth_data_v1.0') % change directory to where the synthetic data is stored 
+>> h5read('chaotic_rnn_inputs_g1p5_dataset_N50_S50','/train_data'); % This will read out the dataset named 'train_data' within the file
+```
 
 ## Train an LFADS model
 
