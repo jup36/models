@@ -20,6 +20,7 @@ Before starting, run the following:
 
 <pre>
 $ export PYTHONPATH=$PYTHONPATH:/<b>path/to/your/directory</b>/lfads/
+$ (e.g.) export PYTHONPATH=$PYTHONPATH:/groups/dudman/home/parkj/models-master/lfads
 </pre>
 
 where "path/to/your/directory" is replaced with the path to the LFADS repository (you can get this path by using the `pwd` command). This allows the nested directories to access modules from their parent directory.
@@ -30,11 +31,15 @@ In order to generate the synthetic datasets first, from the top-level lfads dire
 
 ```sh
 $ cd synth_data
+$ (e.g.) cd /groups/dudman/home/parkj/models-master/lfads/synth_data
 $ ./run_generate_synth_data.sh
-$ cd ..
+$ cd .. (default save directory: /lfads/synth_data/tmp/rnn_synth_data_v1./)
+$ nautilus /tmp (e.g. parkj@dudmanlab-ws1:~/models-master/lfads/synth_data$ nautilus /tmp # This will pop up the tmp folder)
 ```
 
 These synthetic datasets are provided 1. to gain insight into how the LFADS algorithm operates, and 2. to give reasonable starting points for analyses you might be interested for your own data.
+Synthetic data are saved in hdf5 format (useful matlab functions: hdf5write | hdf5info | hdf5read).
+
 
 ## Train an LFADS model
 
